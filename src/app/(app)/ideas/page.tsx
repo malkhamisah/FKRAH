@@ -186,6 +186,7 @@ export default async function IdeaRepositoryPage({
               authorName={idea.author.name}
               byLabel={t("ideas.by")}
               dateLabel={dateFmt.format(idea.submittedAt ?? idea.createdAt)}
+              href={`/ideas/${idea.id}`}
             />
           ))}
         </div>

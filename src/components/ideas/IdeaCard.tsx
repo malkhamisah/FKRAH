@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Card, CardBody, Badge } from "@/components/ui";
 import { IconIdea } from "@/components/icons";
 
@@ -17,6 +18,7 @@ export function IdeaCard({
   authorName,
   byLabel,
   dateLabel,
+  href,
 }: {
   title: string;
   description: string;
@@ -27,9 +29,10 @@ export function IdeaCard({
   authorName: string;
   byLabel: string;
   dateLabel: string;
+  href?: string;
 }) {
-  return (
-    <Card className="flex h-full flex-col">
+  const card = (
+    <Card className="flex h-full flex-col transition-shadow hover:shadow-card-hover">
       <CardBody className="flex flex-1 flex-col">
         <div className="flex items-start justify-between gap-2">
           <span className="mt-0.5 text-brand-600">
@@ -66,4 +69,13 @@ export function IdeaCard({
       </CardBody>
     </Card>
   );
+
+  if (href) {
+    return (
+      <Link href={href} className="block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 rounded-card">
+        {card}
+      </Link>
+    );
+  }
+  return card;
 }

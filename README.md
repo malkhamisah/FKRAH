@@ -75,7 +75,7 @@ Each feature is built and approved before the next starts.
 | 1 | **Foundation + Authentication & User Management** | ✅ Done |
 | 2 | **Idea Submission** | ✅ Done |
 | 3 | **Idea Repository (browse / search / filter)** | ✅ Done |
-| 4 | Idea Details | Planned |
+| 4 | **Idea Details** | ✅ Done |
 | 5 | Voting & Engagement | Planned (completes MVP) |
 | 6 | Dashboard | Planned |
 | 7 | Challenges / Campaigns | Planned |
@@ -123,12 +123,24 @@ Each feature is built and approved before the next starts.
 - Drafts are excluded from the repository (they stay in My Ideas only).
 - 10 sample submitted ideas are seeded for demonstration.
 
+## Phase 4 — what works
+
+- **Idea detail page** at `/ideas/[id]`: full description, structured detail
+  fields (shown only when filled), status, category, tags, author card, an
+  activity timeline (created / submitted), and related ideas from the same
+  category.
+- Repository and My Ideas cards/titles now link to the detail page.
+- Access control: a **draft** detail is viewable only by its author; anyone
+  else — and any unknown id — gets a 404. The author sees Edit/Delete on their
+  own draft.
+
 ## Not connected yet (clearly mocked)
 
 - **Password-reset email delivery.** The reset screen and token generation exist,
   but no email is actually sent — this needs an email provider, added in a later phase.
 - **Idea attachments.** Deferred until the file-storage module is built; the
   submission form shows a note in place of an upload control (no fake button).
-- **Idea cards are not yet clickable to a detail page.** The dedicated idea
-  detail page is Phase 4; the cards intentionally don't link to a route that
-  doesn't exist yet.
+- **Voting & comments.** The detail page shows a labeled note where engagement
+  will go; the actual voting/commenting is Phase 5.
+- **Evaluation information** on the detail page is deferred to the evaluation
+  module (Phase 8).

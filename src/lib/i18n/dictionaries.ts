@@ -141,6 +141,19 @@ const dictionaries = {
     "ideas.page.prev": "السابق",
     "ideas.page.next": "التالي",
 
+    "ideas.detail.back": "العودة إلى المستودع",
+    "ideas.detail.description": "الوصف",
+    "ideas.detail.details": "تفاصيل الفكرة",
+    "ideas.detail.author": "صاحب الفكرة",
+    "ideas.detail.activity": "النشاط",
+    "ideas.detail.created": "تم الإنشاء",
+    "ideas.detail.submitted": "تم الإرسال",
+    "ideas.detail.related": "أفكار ذات صلة",
+    "ideas.detail.engagementNote":
+      "التصويت والتعليقات ستُضاف في مرحلة التفاعل القادمة.",
+    "ideas.detail.evaluationNote":
+      "معلومات التقييم ستظهر هنا عند بناء وحدة التقييم.",
+
     "status.DRAFT": "مسودة",
     "status.SUBMITTED": "مُرسَلة",
     "status.UNDER_REVIEW": "قيد المراجعة",
@@ -298,6 +311,19 @@ const dictionaries = {
     "ideas.noResults.desc": "Try adjusting your search or filters.",
     "ideas.page.prev": "Previous",
     "ideas.page.next": "Next",
+
+    "ideas.detail.back": "Back to repository",
+    "ideas.detail.description": "Description",
+    "ideas.detail.details": "Idea details",
+    "ideas.detail.author": "Author",
+    "ideas.detail.activity": "Activity",
+    "ideas.detail.created": "Created",
+    "ideas.detail.submitted": "Submitted",
+    "ideas.detail.related": "Related ideas",
+    "ideas.detail.engagementNote":
+      "Voting and comments will be added in the upcoming engagement phase.",
+    "ideas.detail.evaluationNote":
+      "Evaluation information will appear here once the evaluation module is built.",
 
     "status.DRAFT": "Draft",
     "status.SUBMITTED": "Submitted",

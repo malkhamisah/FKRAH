@@ -76,7 +76,9 @@ export default async function MyIdeasPage() {
                           <IconIdea />
                         </span>
                         <h2 className="truncate text-base font-semibold text-ink-900">
-                          {idea.title}
+                          <Link href={`/ideas/${idea.id}`} className="hover:text-brand-700 hover:underline">
+                            {idea.title}
+                          </Link>
                         </h2>
                         <Badge tone={STATUS_TONE[idea.status]}>
                           {t(`status.${idea.status}` as DictKey)}
