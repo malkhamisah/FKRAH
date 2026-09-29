@@ -13,6 +13,7 @@ import {
 } from "@/components/ui";
 import { IconIdea } from "@/components/icons";
 import { DeleteIdeaButton } from "@/components/ideas/DeleteIdeaButton";
+import { IdeasTabs } from "@/components/ideas/IdeasTabs";
 
 export default async function MyIdeasPage() {
   const session = await requireUser();
@@ -32,15 +33,19 @@ export default async function MyIdeasPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-end justify-between gap-4">
-        <div>
-          <h1 className="text-2xl font-bold text-ink-900">{t("ideas.mine.title")}</h1>
-          <p className="mt-1 text-sm text-ink-500">{t("ideas.mine.subtitle")}</p>
-        </div>
-        <Link href="/ideas/new">
-          <Button>+ {t("ideas.new")}</Button>
-        </Link>
+      <div>
+        <h1 className="text-2xl font-bold text-ink-900">{t("ideas.mine.title")}</h1>
+        <p className="mt-1 text-sm text-ink-500">{t("ideas.mine.subtitle")}</p>
       </div>
+
+      <IdeasTabs
+        active="mine"
+        labels={{
+          all: t("ideas.tab.all"),
+          mine: t("ideas.tab.mine"),
+          newIdea: t("ideas.new"),
+        }}
+      />
 
       {ideas.length === 0 ? (
         <EmptyState

@@ -74,7 +74,7 @@ Each feature is built and approved before the next starts.
 |---|---|---|
 | 1 | **Foundation + Authentication & User Management** | ✅ Done |
 | 2 | **Idea Submission** | ✅ Done |
-| 3 | Idea Repository (browse / search / filter) | Planned |
+| 3 | **Idea Repository (browse / search / filter)** | ✅ Done |
 | 4 | Idea Details | Planned |
 | 5 | Voting & Engagement | Planned (completes MVP) |
 | 6 | Dashboard | Planned |
@@ -111,11 +111,24 @@ Each feature is built and approved before the next starts.
 - Full idea lifecycle statuses defined in the schema (only Draft/Submitted
   reachable now; the rest arrive with later workflow/evaluation phases).
 
+## Phase 3 — what works
+
+- **Idea repository** at `/ideas`: browse all submitted ideas from everyone as
+  cards, with author, category, tags, status and date.
+- **Search** (title/description), **filters** (category, status) and **sort**
+  (newest / oldest / recently updated / title) — all held in the URL so a
+  filtered view is shareable and works without JavaScript.
+- **Pagination** (9 per page).
+- Tabs to switch between **All ideas** and **My ideas**.
+- Drafts are excluded from the repository (they stay in My Ideas only).
+- 10 sample submitted ideas are seeded for demonstration.
+
 ## Not connected yet (clearly mocked)
 
 - **Password-reset email delivery.** The reset screen and token generation exist,
   but no email is actually sent — this needs an email provider, added in a later phase.
 - **Idea attachments.** Deferred until the file-storage module is built; the
   submission form shows a note in place of an upload control (no fake button).
-- **Browse-all Idea Repository** (search / filters across everyone's ideas) is
-  Phase 3; `/ideas` currently shows the author's own ideas.
+- **Idea cards are not yet clickable to a detail page.** The dedicated idea
+  detail page is Phase 4; the cards intentionally don't link to a route that
+  doesn't exist yet.
