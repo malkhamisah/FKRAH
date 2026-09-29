@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* System font stack with strong Arabic coverage — no network font needed. */
+  --font-sans: "Segoe UI", "Tahoma", "Noto Sans Arabic", "Noto Kufi Arabic",
+    system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: theme("colors.ink.50");
+  color: theme("colors.ink.900");
+  font-family: var(--font-sans);
+}
+
+/* Respect logical direction for form controls in RTL. */
+[dir="rtl"] select {
+  background-position: left 0.5rem center;
+}

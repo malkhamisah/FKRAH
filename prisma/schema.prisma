@@ -1,0 +1,54 @@
+// فكرة — Prisma schema
+// Dev uses SQLite (no server needed). For production, switch `provider` to
+// "postgresql" and update DATABASE_URL — the models below are portable.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+/// Application roles. Enforced per-feature in the authorization layer.
+/// Stored as a string because SQLite has no native enum type.
+enum Role {
+  MEMBER
+  EVALUATOR
+  ADMIN
+}
+
+enum UserStatus {
+  ACTIVE
+  DISABLED
+}
+
+model User {
+  id           String     @id @default(cuid())
+  name         String
+  email        String     @unique
+  passwordHash String
+  role         Role       @default(MEMBER)
+  status       UserStatus @default(ACTIVE)
+  jobTitle     String?
+  department   String?
+  bio          String?
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+
+  passwordResetTokens PasswordResetToken[]
+}
+
+/// Backing store for the password-reset flow.
+/// NOTE: token delivery by email is NOT connected in Phase 1 — the token is
+/// generated and stored, but no email is actually sent.
+model PasswordResetToken {
+  id        String   @id @default(cuid())
+  token     String   @unique
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime @default(now())
+}
