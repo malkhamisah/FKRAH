@@ -72,8 +72,8 @@ Each feature is built and approved before the next starts.
 
 | # | Feature | Status |
 |---|---|---|
-| 1 | **Foundation + Authentication & User Management** | ✅ Done (this phase) |
-| 2 | Idea Submission | Planned |
+| 1 | **Foundation + Authentication & User Management** | ✅ Done |
+| 2 | **Idea Submission** | ✅ Done |
 | 3 | Idea Repository (browse / search / filter) | Planned |
 | 4 | Idea Details | Planned |
 | 5 | Voting & Engagement | Planned (completes MVP) |
@@ -98,7 +98,24 @@ Each feature is built and approved before the next starts.
   (with self-lockout protection).
 - Route protection via middleware.
 
+## Phase 2 — what works
+
+- Submit an idea with structured fields: title, description, category (seeded,
+  bilingual), tags, business problem, proposed solution, expected benefits,
+  estimated impact, supporting information.
+- Save as **Draft** (private to the author, editable) or **Submit** (enters the
+  lifecycle; editing locked afterwards).
+- **My Ideas** list showing the author's own ideas with status badges, category
+  and tags; edit and delete available for drafts only.
+- Ownership isolation: a user cannot open another user's idea (returns 404).
+- Full idea lifecycle statuses defined in the schema (only Draft/Submitted
+  reachable now; the rest arrive with later workflow/evaluation phases).
+
 ## Not connected yet (clearly mocked)
 
 - **Password-reset email delivery.** The reset screen and token generation exist,
   but no email is actually sent — this needs an email provider, added in a later phase.
+- **Idea attachments.** Deferred until the file-storage module is built; the
+  submission form shows a note in place of an upload control (no fake button).
+- **Browse-all Idea Repository** (search / filters across everyone's ideas) is
+  Phase 3; `/ideas` currently shows the author's own ideas.

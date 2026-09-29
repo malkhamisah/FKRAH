@@ -38,6 +38,7 @@ model User {
   updatedAt    DateTime   @updatedAt
 
   passwordResetTokens PasswordResetToken[]
+  ideas               Idea[]
 }
 
 /// Backing store for the password-reset flow.
@@ -51,4 +52,78 @@ model PasswordResetToken {
   expiresAt DateTime
   usedAt    DateTime?
   createdAt DateTime @default(now())
+}
+
+/// Full idea lifecycle. Only DRAFT and SUBMITTED are reachable in Phase 2
+/// (Idea Submission); the remaining states are introduced with the workflow,
+/// evaluation and approval features. Kept here so the type is stable.
+enum IdeaStatus {
+  DRAFT
+  SUBMITTED
+  UNDER_REVIEW
+  EVALUATION
+  SHORTLISTED
+  APPROVED
+  IN_PROGRESS
+  COMPLETED
+  REJECTED
+  ARCHIVED
+}
+
+/// Author's rough estimate of an idea's impact.
+enum EstimatedImpact {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+/// Idea categories. Bilingual labels so the UI stays fully Arabic/English.
+model Category {
+  id       String  @id @default(cuid())
+  slug     String  @unique
+  nameEn   String
+  nameAr   String
+  isActive Boolean @default(true)
+  sortOrder Int    @default(0)
+
+  ideas Idea[]
+}
+
+/// Free-form tags, reused across ideas (many-to-many).
+model Tag {
+  id    String @id @default(cuid())
+  name  String @unique
+  ideas Idea[]
+}
+
+/// The core entity of the platform.
+model Idea {
+  id String @id @default(cuid())
+
+  title       String
+  description String
+
+  // Structured, optional detail fields (from the submission form).
+  businessProblem  String?
+  proposedSolution String?
+  expectedBenefits String?
+  supportingInfo   String?
+  estimatedImpact  EstimatedImpact?
+
+  status      IdeaStatus @default(DRAFT)
+  submittedAt DateTime?
+
+  authorId String
+  author   User   @relation(fields: [authorId], references: [id], onDelete: Cascade)
+
+  categoryId String?
+  category   Category? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+
+  tags Tag[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([authorId])
+  @@index([status])
 }

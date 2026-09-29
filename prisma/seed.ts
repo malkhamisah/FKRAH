@@ -54,6 +54,44 @@ async function main() {
     department: "Operations",
   });
 
+  const categories = [
+    { slug: "technology", nameEn: "Technology", nameAr: "تقنية", sortOrder: 1 },
+    {
+      slug: "process-improvement",
+      nameEn: "Process Improvement",
+      nameAr: "تحسين العمليات",
+      sortOrder: 2,
+    },
+    {
+      slug: "customer-experience",
+      nameEn: "Customer Experience",
+      nameAr: "تجربة العملاء",
+      sortOrder: 3,
+    },
+    {
+      slug: "cost-reduction",
+      nameEn: "Cost Reduction",
+      nameAr: "خفض التكاليف",
+      sortOrder: 4,
+    },
+    {
+      slug: "sustainability",
+      nameEn: "Sustainability",
+      nameAr: "الاستدامة",
+      sortOrder: 5,
+    },
+    { slug: "other", nameEn: "Other", nameAr: "أخرى", sortOrder: 99 },
+  ];
+
+  for (const c of categories) {
+    await prisma.category.upsert({
+      where: { slug: c.slug },
+      update: { nameEn: c.nameEn, nameAr: c.nameAr, sortOrder: c.sortOrder },
+      create: c,
+    });
+  }
+
+  console.log(`Seeded ${categories.length} categories.`);
   console.log("Seed complete. Accounts:");
   console.log("  admin@fkrah.local     / Admin@12345   (ADMIN)");
   console.log("  evaluator@fkrah.local / Eval@12345    (EVALUATOR)");

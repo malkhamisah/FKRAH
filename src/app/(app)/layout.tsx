@@ -20,14 +20,8 @@ export default async function AppLayout({
 
   const items: NavItem[] = [
     { href: "/dashboard", label: t("nav.dashboard"), icon: <IconDashboard /> },
-    // Ideas & Challenges are future phases — shown disabled for context.
-    {
-      href: "/ideas",
-      label: t("nav.ideas"),
-      icon: <IconIdea />,
-      disabled: true,
-      soonLabel: t("nav.comingSoon"),
-    },
+    { href: "/ideas", label: t("nav.ideas"), icon: <IconIdea /> },
+    // Challenges is a future phase — shown disabled for context.
     {
       href: "/challenges",
       label: t("nav.challenges"),
