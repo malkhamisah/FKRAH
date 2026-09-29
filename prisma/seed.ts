@@ -29,7 +29,7 @@ async function upsertUser(input: {
 async function main() {
   await upsertUser({
     name: "مدير النظام",
-    email: "admin@fikra.local",
+    email: "admin@fkrah.local",
     password: "Admin@12345",
     role: "ADMIN",
     jobTitle: "System Administrator",
@@ -38,7 +38,7 @@ async function main() {
 
   await upsertUser({
     name: "سارة المقيّمة",
-    email: "evaluator@fikra.local",
+    email: "evaluator@fkrah.local",
     password: "Eval@12345",
     role: "EVALUATOR",
     jobTitle: "Innovation Analyst",
@@ -47,7 +47,7 @@ async function main() {
 
   await upsertUser({
     name: "أحمد العضو",
-    email: "member@fikra.local",
+    email: "member@fkrah.local",
     password: "Member@12345",
     role: "MEMBER",
     jobTitle: "Product Specialist",
@@ -55,9 +55,9 @@ async function main() {
   });
 
   console.log("Seed complete. Accounts:");
-  console.log("  admin@fikra.local     / Admin@12345   (ADMIN)");
-  console.log("  evaluator@fikra.local / Eval@12345    (EVALUATOR)");
-  console.log("  member@fikra.local    / Member@12345  (MEMBER)");
+  console.log("  admin@fkrah.local     / Admin@12345   (ADMIN)");
+  console.log("  evaluator@fkrah.local / Eval@12345    (EVALUATOR)");
+  console.log("  member@fkrah.local    / Member@12345  (MEMBER)");
 }
 
 main()

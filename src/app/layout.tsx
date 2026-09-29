@@ -4,7 +4,7 @@ import { getLocale } from "@/lib/i18n";
 import { dirFor } from "@/lib/i18n/config";
 
 export const metadata: Metadata = {
-  title: "فكرة | Fikra — Idea Management Platform",
+  title: "فكرة | FKRAH — Idea Management Platform",
   description:
     "منصة إدارة الأفكار المؤسسية — من الفكرة إلى التنفيذ. An enterprise idea management platform.",
 };

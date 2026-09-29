@@ -88,7 +88,7 @@ const dictionaries = {
     "common.confirm": "تأكيد",
   },
   en: {
-    "app.name": "Fikra",
+    "app.name": "FKRAH",
     "app.tagline": "Idea Management Platform",
 
     "nav.dashboard": "Dashboard",

@@ -3,7 +3,7 @@ import { cookies } from "next/headers";
 import { SignJWT, jwtVerify } from "jose";
 import type { Role } from "@prisma/client";
 
-const COOKIE_NAME = "fikra_session";
+const COOKIE_NAME = "fkrah_session";
 const MAX_AGE_SECONDS = 60 * 60 * 24 * 7; // 7 days
 
 export type SessionPayload = {

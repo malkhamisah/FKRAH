@@ -1,7 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { jwtVerify } from "jose";
 
-const COOKIE_NAME = "fikra_session";
+const COOKIE_NAME = "fkrah_session";
 
 // Routes under the authenticated app shell that require a valid session.
 const PROTECTED_PREFIXES = ["/dashboard", "/profile", "/admin", "/ideas", "/challenges"];

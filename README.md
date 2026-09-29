@@ -1,4 +1,4 @@
-# فكرة — Fikra
+# فكرة — FKRAH
 
 An enterprise **Digital Idea Management Platform** — from idea submission through
 evaluation, prioritization, approval, implementation and impact measurement.
@@ -39,9 +39,9 @@ npm run dev                 # start the dev server on http://localhost:3000
 
 | Role | Email | Password |
 |---|---|---|
-| Administrator | `admin@fikra.local` | `Admin@12345` |
-| Evaluator | `evaluator@fikra.local` | `Eval@12345` |
-| Member | `member@fikra.local` | `Member@12345` |
+| Administrator | `admin@fkrah.local` | `Admin@12345` |
+| Evaluator | `evaluator@fkrah.local` | `Eval@12345` |
+| Member | `member@fkrah.local` | `Member@12345` |
 
 ---
 
